@@ -1,0 +1,32 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    max-height: 100vh !important;
+    overflow: hidden;
+    background-image: url("../img/background.jpg");
+    background-size: 15%;
+}
+.main {
+    height: 100%;
+    width: 100%;
+    display: flex;
+}
+
+.table-container {
+    height: 100%;
+    flex-grow: 4;
+}
+
+.leaderboard,
+.game-status {
+    height: 100%;
+    flex-grow: 1;
+    background: #0000006b;
+    backdrop-filter: blur(5px);
+}
