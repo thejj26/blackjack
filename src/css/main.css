@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     font-family: sans-serif;
+    color: #fff;
 }
 
 body {
@@ -12,6 +13,7 @@ body {
     background-image: url("../img/background.jpg");
     background-size: 15%;
 }
+
 .main {
     height: 100%;
     width: 100%;
@@ -20,13 +22,89 @@ body {
 
 .table-container {
     height: 100%;
-    flex-grow: 4;
+    width: 60%;
 }
 
 .leaderboard,
 .game-status {
     height: 100%;
-    flex-grow: 1;
+    width: 20%;
     background: #0000006b;
     backdrop-filter: blur(5px);
+}
+
+
+.game-status {
+    box-shadow: 5px 0px 5px 0px rgba(0, 0, 0, 0.5);
+}
+
+.leaderboard {
+    box-shadow: -5px 0px 5px 0px rgba(0, 0, 0, 0.5);
+    position: relative;
+}
+
+.leaderboard h3 {
+    text-align: center;
+    margin-top: 64px;
+    font-size: 24px;
+}
+
+.leaderboard-container {
+    margin: 0 10%;
+    width: 80%;
+    height: 70%;
+    max-height: 70% !important;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.leaderboard-header{
+    border-bottom: 2px #69806b solid;
+    height: 4%;
+    padding: 0 4px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.leaderboard-header p{
+    font-weight: 600;
+    color: #cacaca;
+}
+
+.leaderboard-header p:first-of-type::before{
+    content: "#";
+    width: 30px !important;
+    display: inline-block;
+}
+
+#leaderboard{
+    list-style-position: inside;
+    display: flex;
+    flex-direction: column;
+    gap:16px;
+    overflow: scroll;
+    height: 96%;
+    padding: 8px 2px;
+    margin: 8px 0;
+}
+
+#leaderboard li{
+    display: flex;
+    counter-increment: n;
+    font-size: 18px;
+}
+
+#leaderboard li span{
+    position: absolute;
+    right: 16px;
+    font-size: 18px;
+    letter-spacing: 2px;
+}
+
+#leaderboard li::before{
+    content: counter(n)".";
+    width: 36px;
+    font-weight: 600;
+    color:#a1a1a1;
 }
