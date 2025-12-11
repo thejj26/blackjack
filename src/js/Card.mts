@@ -37,4 +37,17 @@ class Card {
     private static readonly hidden_img_url = "../img/hidden.png";    //staticka konstanta, sadrzi url na sliku skrivene karte (straznja strana karte)
 }
 
-export default Card;
+let cardList: Card[] = (() => {
+    const list: Card[] = [];
+    const suits = ["hearts", "diamonds", "clubs", "spades"] as const;
+
+    for (let i = 0; i < 4; i++) {
+        for (let j = 1; j <= 13; j++) {
+            list.push(new Card(j, suits[i]));
+        }
+    }
+
+    return list;
+})();
+
+export { Card, cardList};

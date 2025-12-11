@@ -1,4 +1,4 @@
-import Card from "./Card.mts"
+import { Card } from "./Card.mjs"
 
 class Hand {
     public cards: Card[];   //karte u ruci
@@ -22,8 +22,8 @@ class Hand {
         this.updateValue(c);    //nova vrijednost ruke
     }
 
-    public resetDeck():void{
-        while(this.cards.length>0){
+    public resetDeck(): void {
+        while (this.cards.length > 0) {
             this.cards.pop()?.resetCard();
         }
         this.totalValue = 0;
@@ -32,4 +32,4 @@ class Hand {
 
 }
 
-export default Hand;
+export { Hand };
