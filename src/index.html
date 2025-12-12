@@ -11,8 +11,7 @@
 <body>
 
     <section class="main">
-        <div class="game-status"></div>
-        <div class="table-container"></div>
+        <!--LEADERBOARD-->
         <div class="leaderboard">
             <h3>LEADERBOARD</h3>
             <div class="leaderboard-container">
@@ -23,7 +22,18 @@
                 <ol id="leaderboard">
                 </ol>
             </div>
+            <div class="add-to-leaderboard">
+                <input type="text" id="inputUsername" maxlength="24" placeholder="USERNAME" autocomplete="off">
+                <button id="btnSubmit">SUBMIT</button>
+            </div>
         </div>
+        <!--GAME TABLE-->
+        <div class="table-container"></div>
+        <!--ACTIONS AND STATUS-->
+        <div class="game-status">
+            <button id="btnStart">START ROUND</button>
+        </div>
+
     </section>
     <script src="../dist/js/main.mjs" type="module"></script>
 </body>

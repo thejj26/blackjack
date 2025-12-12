@@ -31,16 +31,7 @@ body {
     width: 20%;
     background: #0000006b;
     backdrop-filter: blur(5px);
-}
-
-
-.game-status {
-    box-shadow: 5px 0px 5px 0px rgba(0, 0, 0, 0.5);
-}
-
-.leaderboard {
-    box-shadow: -5px 0px 5px 0px rgba(0, 0, 0, 0.5);
-    position: relative;
+    box-shadow: 5px 0px 5px 0px #00000080;
 }
 
 .leaderboard h3 {
@@ -59,7 +50,7 @@ body {
     transform: translateY(-50%);
 }
 
-.leaderboard-header{
+.leaderboard-header {
     border-bottom: 2px #69806b solid;
     height: 4%;
     padding: 0 4px;
@@ -67,44 +58,118 @@ body {
     justify-content: space-between;
 }
 
-.leaderboard-header p{
+.leaderboard-header p {
     font-weight: 600;
     color: #cacaca;
 }
 
-.leaderboard-header p:first-of-type::before{
+.leaderboard-header p:first-of-type::before {
     content: "#";
     width: 30px !important;
     display: inline-block;
 }
 
-#leaderboard{
+#leaderboard {
     list-style-position: inside;
     display: flex;
     flex-direction: column;
-    gap:16px;
+    gap: 16px;
     overflow: scroll;
     height: 96%;
     padding: 8px 2px;
     margin: 8px 0;
 }
 
-#leaderboard li{
+#leaderboard li {
     display: flex;
     counter-increment: n;
     font-size: 18px;
 }
 
-#leaderboard li span{
+#leaderboard li span {
     position: absolute;
-    right: 16px;
+    right: 8px;
     font-size: 18px;
     letter-spacing: 2px;
 }
 
-#leaderboard li::before{
+#leaderboard li::before {
     content: counter(n)".";
     width: 36px;
     font-weight: 600;
-    color:#a1a1a1;
+    color: #a1a1a1;
+}
+
+.add-to-leaderboard {
+    position: absolute;
+    bottom: 28px;
+    display: flex;
+    flex-direction: column;
+    left: 50%;
+    transform: translateX(-50%);
+    padding-top: 20px;
+    border-top: 1px solid #fff;
+    width: 96%;
+    align-items: center;
+    gap: 20px;
+    margin: 0 auto;
+}
+
+.add-to-leaderboard::after {
+    content: "SUBMIT CURRENT RESULT";
+    position: absolute;
+    top: -24px;
+    transform: translateY(-50%);
+    text-align: center;
+    width: 100%;
+    font-weight: 600;
+    letter-spacing: 1px;
+    font-size: 16px;
+}
+
+#btnStart,
+#btnSubmit {
+    box-sizing: border-box;
+    background: transparent;
+    border: 2px solid #fff;
+    border-radius: 4px;
+    transition: ease-in-out .1s;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+#btnStart {
+    position: absolute;
+    bottom: 48px;
+    width: 200px;
+    height: 48px;
+    font-size: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#btnSubmit {
+    width: 100px;
+    height: 28px;
+    font-size: 16px;
+}
+
+#btnStart:hover,
+#btnSubmit:hover {
+    background: #fff;
+    color: #000;
+}
+
+#inputUsername {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #a1a1a1;
+    font-size: 18px;
+    width: 248px;
+    letter-spacing: 1px;
+    text-align: center;
+}
+
+#inputUsername:focus {
+    outline: none;
 }

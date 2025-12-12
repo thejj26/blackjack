@@ -20,12 +20,16 @@ function loadLeaderboard(): LeaderboardEntry[] {    //cita leaderboard i upsiuje
 }
 
 function addToLeaderboard(leaderboard_JSON: LeaderboardEntry[], username: string, score: number): void {    //dodaje novi zapis u leaderboard i sprema ga
+    if (username == "") { alert("Username cannot be empty!"); return; }
+
     let i = 0;
     while (i < leaderboard_JSON.length && leaderboard_JSON[i].score > score) i++;   //dok nije kraj ili dok se ne dode do prvog manjeg/jednakog elementa
 
     leaderboard_JSON.splice(i, 0, { username, score });
 
     localStorage.setItem("leaderboard", JSON.stringify(leaderboard_JSON));
+
+    if (confirm("If you choose to submit your result now, the game will end!\n\nAre you sure?")) window.location.reload();
 }
 
 export { loadLeaderboard, addToLeaderboard, LeaderboardEntry };

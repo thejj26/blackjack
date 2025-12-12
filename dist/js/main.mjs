@@ -1,18 +1,31 @@
-import { cardList } from "./Card.mjs";
 import { Hand } from "./Hand.mjs";
 import { shuffleCards } from "./Helpers.mjs";
-import { Player } from "./player.mjs";
-import { loadLeaderboard } from "./Leaderboard.mjs";
+import { Player } from "./Player.mjs";
+import { loadLeaderboard, addToLeaderboard } from "./Leaderboard.mjs";
+//varijable potrebne za logiku igre
 let player = new Player();
 let dealer = new Hand();
+//DOM elementi
 let leaderboard;
-window.addEventListener("load", () => {
-    leaderboard = loadLeaderboard();
-    readyRound();
-});
+let inputName;
+let btnSubmit;
+let btnStart;
 function readyRound() {
     shuffleCards();
-    console.log(cardList);
     player.reset();
     dealer.reset();
 }
+window.addEventListener("load", () => {
+    //dohvacanje DOM elemenata
+    leaderboard = loadLeaderboard();
+    btnStart = document.getElementById("btnStart");
+    inputName = document.getElementById("inputUsername");
+    btnSubmit = document.getElementById("btnSubmit");
+    //dodavajne event listenera
+    btnStart.addEventListener("click", readyRound);
+    btnSubmit.addEventListener("click", () => {
+        addToLeaderboard(leaderboard, inputName.value.trim(), player.getMoney());
+    });
+    //pocetak igre
+    readyRound();
+});
