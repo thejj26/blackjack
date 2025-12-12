@@ -3,7 +3,7 @@ import { Card } from "./Card.mjs"
 class Hand {
     public cards: Card[];   //karte u ruci
     public totalValue: number; //ukupna vrijednost ruke
-    private aces: Card[];   //sadrzi aseve, koristi se za mijenjanje vrijednosti aseva
+    protected aces: Card[];   //sadrzi aseve, koristi se za mijenjanje vrijednosti aseva
 
     constructor() {
         this.cards = [];
@@ -11,7 +11,7 @@ class Hand {
         this.aces = [];
     }
 
-    private updateValue(c: Card): void { //vraca novu vrijednost ruke s obzirom na dodanu kartu
+   protected updateValue(c: Card): void { //vraca novu vrijednost ruke s obzirom na dodanu kartu
         this.totalValue += c.value;
         while (this.totalValue > 21 && this.aces.pop() != undefined) this.totalValue -= 10; //dok je vrijednost veca od 21 i dok postoje (nepromijenjeni) asevi
     }
@@ -22,9 +22,9 @@ class Hand {
         this.updateValue(c);    //nova vrijednost ruke
     }
 
-    public resetDeck(): void {
+    public reset(): void {
         while (this.cards.length > 0) {
-            this.cards.pop()?.resetCard();
+            this.cards.pop()!.resetCard();
         }
         this.totalValue = 0;
         this.aces = [];

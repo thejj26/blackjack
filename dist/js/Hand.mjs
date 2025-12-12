@@ -15,9 +15,9 @@ class Hand {
             this.aces.push(c); //ako je as
         this.updateValue(c); //nova vrijednost ruke
     }
-    resetDeck() {
+    reset() {
         while (this.cards.length > 0) {
-            this.cards.pop()?.resetCard();
+            this.cards.pop().resetCard();
         }
         this.totalValue = 0;
         this.aces = [];
