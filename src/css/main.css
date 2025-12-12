@@ -1,8 +1,27 @@
 * {
     margin: 0;
     padding: 0;
-    font-family: sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
     color: #fff;
+}
+
+*:disabled {
+    cursor: not-allowed;
+    color: #646464;
+    border-color: #646464 !important;
+    transition: none;
+    background: transparent !important;
+}
+
+*:disabled:hover {
+    color: #646464 !important;
+    border-color: #646464 !important;
+    box-shadow: none !important;
+    background: transparent !important;
+}
+
+button {
+    cursor: pointer;
 }
 
 body {
@@ -31,13 +50,21 @@ body {
     width: 20%;
     background: #0000006b;
     backdrop-filter: blur(5px);
+}
+
+.leaderboard {
     box-shadow: 5px 0px 5px 0px #00000080;
+}
+
+.game-status {
+    box-shadow: -5px 0px 5px 0px #00000080;
 }
 
 .leaderboard h3 {
     text-align: center;
     margin-top: 64px;
     font-size: 24px;
+    letter-spacing: 1px;
 }
 
 .leaderboard-container {
@@ -138,16 +165,6 @@ body {
     letter-spacing: 1px;
 }
 
-#btnStart {
-    position: absolute;
-    bottom: 48px;
-    width: 200px;
-    height: 48px;
-    font-size: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-}
-
 #btnSubmit {
     width: 100px;
     height: 28px;
@@ -172,4 +189,119 @@ body {
 
 #inputUsername:focus {
     outline: none;
+}
+
+#btnStart {
+    position: absolute;
+    bottom: 48px;
+    width: 200px;
+    height: 48px;
+    font-size: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.card-controls {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 90%;
+    margin: 0 5%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#btnHit,
+#btnStand {
+    background: #ffffff11;
+    border: 1px solid #fff;
+    border-color: #fff;
+    font-size: 20px;
+    width: 100px;
+    height: 36px;
+    border-radius: 4px;
+    transition: ease-in-out .1s;
+}
+
+#btnHit:hover,
+#btnStand:hover {
+    background: #fff;
+    color: #000;
+    box-shadow: 0px 0px 9px 4px #00000080;
+}
+
+.bet-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 64px;
+}
+
+.bet-container h5 {
+    font-size: 24px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    margin-bottom: 48px;
+    font-weight: 600;
+}
+
+.bet-select {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 8px;
+}
+
+.bet-display {
+    display: flex;
+    gap: 6px;
+}
+
+.bet-display span {
+    font-size: 22px;
+}
+
+#inputBet {
+    appearance: none;
+    height: 8px;
+    width: 240px;
+    outline: none;
+    background: #cacaca;
+    border-radius: 12px;
+}
+
+#inputBet:disabled {
+    background: #646464 !important;
+}
+
+#inputBet::-webkit-slider-thumb,
+#inputBet::-moz-range-thumb {
+    width: 6px;
+    height: 24px;
+    border: none;
+    cursor: pointer;
+    border-radius: 2px;
+    background: #7fa783;
+}
+
+#inputBet:disabled::-webkit-slider-thumb,
+#inputBet:disabled:-moz-range-thumb {
+    background: #546b56;
+    cursor: not-allowed;
+}
+
+#btnRemoveOne,
+#btnAddOne {
+    border: none;
+    background: #7fa783;
+    width: 28px;
+    height: 28px;
+    font-size: 16px;
+    border-radius: 8px;
+}
+
+#btnRemoveOne:disabled,
+#btnAddOne:disabled {
+    color: #646464;
+    border: 2px solid #646464 !important;
 }

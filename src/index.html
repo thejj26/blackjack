@@ -23,14 +23,33 @@
                 </ol>
             </div>
             <div class="add-to-leaderboard">
-                <input type="text" id="inputUsername" maxlength="24" placeholder="USERNAME" autocomplete="off">
-                <button id="btnSubmit">SUBMIT</button>
+                <input type="text" id="inputUsername" maxlength="24" placeholder="USERNAME" autocomplete="off" disabled>
+                <button id="btnSubmit" disabled>SUBMIT</button>
             </div>
         </div>
         <!--GAME TABLE-->
         <div class="table-container"></div>
         <!--ACTIONS AND STATUS-->
         <div class="game-status">
+            <div class="game-controls">
+                <div class="bet-container">
+                    <h5>PLACE YOUR BET</h5>
+                    <div class="bet-display">
+                        <span id="currentBet">1</span>
+                        <span>/</span>
+                        <span id="totalBet">10</span></span>
+                    </div>
+                    <div class="bet-select">
+                        <button id="btnRemoveOne">-1</button>
+                        <input type="range" id="inputBet" min="1" max="10" autocomplete="off" value="1">
+                        <button id="btnAddOne">+1</button>
+                    </div>
+                </div>
+                <div class="card-controls">
+                    <button id="btnHit" disabled>HIT</button>
+                    <button id="btnStand" disabled>STAND</button>
+                </div>
+            </div>
             <button id="btnStart">START ROUND</button>
         </div>
 

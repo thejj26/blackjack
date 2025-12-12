@@ -6,13 +6,18 @@ class Player extends Hand { //klasa igraca
 
     constructor() {
         super();
-        this.money = 0;
+        this.money = 10;
         this.bet = 1;
     }
 
     public getMoney(): number { return this.money }
 
-    public setBet(amount: number): void { this.bet = amount }
+    public setBet(amount: number): void {
+        if (amount > this.money) this.bet = this.money;
+        else this.bet = amount > 1 ? amount : 1;
+    }
+
+    public getBet(): number { return this.bet };
 
     public winBet(): void { //dobitak
         this.money += this.bet;
