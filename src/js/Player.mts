@@ -1,11 +1,12 @@
-import { Hand } from "./Hand.mjs"
+import { nextCard } from "./Card.mjs";
+import { Person } from "./Person.mjs"
 
-class Player extends Hand { //klasa igraca
+class Player extends Person { //klasa igraca
     private money: number;  //dostupan novac
     private bet: number;    //oklada
 
-    constructor() {
-        super();
+    constructor(element: HTMLElement) {
+        super(element);
         this.money = 10;
         this.bet = 1;
     }
@@ -21,12 +22,18 @@ class Player extends Hand { //klasa igraca
 
     public winBet(): void { //dobitak
         this.money += this.bet;
-        this.bet = 10;
     }
 
     public loseBet(): void {    //gubitak
-        this.money - + this.bet;
-        this.bet = 10;
+        this.money -= this.bet;
+        if (this.money < 0) this.money = 0;
+    }
+
+    public override hit(): boolean {
+        this.addCard(nextCard());
+        let lastCard = this.cards[this.cards.length - 1];
+        this.DOM.appendChild(lastCard.getDOM());
+        return this.totalValue >= 21;
     }
 
     public override reset(): void { //reseta i novac te okladu

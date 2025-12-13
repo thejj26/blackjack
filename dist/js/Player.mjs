@@ -1,7 +1,8 @@
-import { Hand } from "./Hand.mjs";
-class Player extends Hand {
-    constructor() {
-        super();
+import { nextCard } from "./Card.mjs";
+import { Person } from "./Person.mjs";
+class Player extends Person {
+    constructor(element) {
+        super(element);
         this.money = 10;
         this.bet = 1;
     }
@@ -16,11 +17,17 @@ class Player extends Hand {
     ;
     winBet() {
         this.money += this.bet;
-        this.bet = 10;
     }
     loseBet() {
-        this.money - +this.bet;
-        this.bet = 10;
+        this.money -= this.bet;
+        if (this.money < 0)
+            this.money = 0;
+    }
+    hit() {
+        this.addCard(nextCard());
+        let lastCard = this.cards[this.cards.length - 1];
+        this.DOM.appendChild(lastCard.getDOM());
+        return this.totalValue >= 21;
     }
     reset() {
         while (this.cards.length > 0) {

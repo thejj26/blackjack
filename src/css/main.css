@@ -237,12 +237,16 @@ body {
     margin-top: 64px;
 }
 
-.bet-container h5 {
+#placeBet {
     font-size: 24px;
     font-weight: 500;
     letter-spacing: 1px;
     margin-bottom: 48px;
     font-weight: 600;
+}
+
+#placeBet.disabled {
+    color: #646464;
 }
 
 .bet-select {
@@ -268,10 +272,12 @@ body {
     outline: none;
     background: #cacaca;
     border-radius: 12px;
+    cursor: pointer;
 }
 
 #inputBet:disabled {
     background: #646464 !important;
+    cursor: not-allowed;
 }
 
 #inputBet::-webkit-slider-thumb,
@@ -287,7 +293,6 @@ body {
 #inputBet:disabled::-webkit-slider-thumb,
 #inputBet:disabled:-moz-range-thumb {
     background: #546b56;
-    cursor: not-allowed;
 }
 
 #btnRemoveOne,
@@ -304,4 +309,55 @@ body {
 #btnAddOne:disabled {
     color: #646464;
     border: 2px solid #646464 !important;
+}
+
+.table-container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.table-container>div {
+    height: 50%;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    column-gap: 16px;
+}
+
+.card,
+.card img {
+    height: 180px !important;
+}
+
+#toast {
+    width: 400px;
+    height: 180px;
+    background: #ffffffb9;
+    position: absolute;
+    bottom: -200px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 24px;
+    transition: .25s ease-in-out bottom;
+}
+
+#toast p {
+    color: #000;
+    font-size: 36px;
+    text-align: center;
+    margin-top: 32px;
+    letter-spacing: 1px;
+}
+
+#toast span {
+    display: block;
+    text-align: center;
+    font-size: 24px;
+    margin-top: 24px;
+    font-weight: 600;
 }
